@@ -8,26 +8,34 @@
                         <div class="mb-3">
                             <input type="text" formControlName="producto"
                             class="form-control form-control-lg" placeholder="Producto">
-                            <div class="text-danger"
-                            *ngIf= "productoForm.('producto').hasError('required')">
+                            <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched"> 
                                 <span>El nombre del producto es <strong>obligatorio</strong></span>
                             </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="categoria"
                             class="form-control form-control-lg" placeholder="Categoria">
+                            <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched"> 
+                                <span>El nombre de la categoria es <strong>obligatorio</strong></span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="ubicacion"
                             class="form-control form-control-lg" placeholder="Ubicación">
+                            <div class="text-danger" *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched"> 
+                                <span>El nombre de la ubicacion es <strong>obligatorio</strong></span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <input type="number" formControlName="precio"
                             class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched"> 
+                                <span>El nombre del precio es <strong>obligatorio</strong></span>
+                            </div>
                         </div> 
                         <div class="mb-3">
                             <button routerLink="/api/list" class="btn btn-secondary float-start">Volver</button>
-                            <button class="btn btn-success float-end">Aceptar</button>
+                            <button type="submit" [disabled]= "productoForm.invalid" class="btn btn-success float-end">Aceptar</button>
                         </div>
                     </form>
                 </div>
